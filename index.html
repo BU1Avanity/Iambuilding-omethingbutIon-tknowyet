@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My first Stardance project</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Built for Stardance</p>
+      <h1>Hi, I'm <!-- TODO: your name -->Jacob</h1>
+      <p class="lead">A tiny site I’m building while learning to track hours with Hackatime.</p>
+    </header>
+
+    <section class="card">
+      <h2>What I'm working on</h2>
+      <ul id="goals">
+        <li>Get Hackatime tracking working</li>
+        <li>Ship this on GitHub</li>
+        <li>Post a dev log on Stardance</li>
+      </ul>
+      <form id="add-goal">
+        <input type="text" id="goal-input" placeholder="Add a goal..." maxlength="80" />
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Click counter</h2>
+      <p id="message">Clicks: <strong id="count">0</strong></p>
+      <button id="btn" type="button">+1</button>
+      <button id="reset" type="button" class="secondary">Reset</button>
+    </section>
+
+    <footer>
+      <p>Session started today · edit this site in Cursor to log more hours</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
