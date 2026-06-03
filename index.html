@@ -3,39 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My first Stardance project</title>
+  <title>Daily Flow — chore tracker</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main>
     <header>
-      <p class="eyebrow">Built for Stardance</p>
-      <h1>Hi, I'm <!-- TODO: your name -->Jacob</h1>
-      <p class="lead">A tiny site I’m building while learning to track hours with Hackatime.</p>
+      <p class="eyebrow">Daily Flow</p>
+      <h1>Today's routine</h1>
+      <p class="lead" id="today-label">Loading date…</p>
+      <p class="stats" id="stats-line">0 of 0 done</p>
     </header>
 
+    <section class="card timer-card">
+      <h2>Focus timer</h2>
+      <p class="hint">Set minutes, start, and work until it hits zero (updates every second).</p>
+      <div class="timer-display" id="timer-display">25:00</div>
+      <div class="timer-controls">
+        <label class="sr-only" for="timer-minutes">Minutes</label>
+        <input type="number" id="timer-minutes" min="1" max="180" value="25" />
+        <button type="button" id="timer-start">Start</button>
+        <button type="button" id="timer-pause" class="secondary">Pause</button>
+        <button type="button" id="timer-reset" class="secondary">Reset</button>
+      </div>
+      <p class="timer-status" id="timer-status">Ready</p>
+    </section>
+
     <section class="card">
-      <h2>What I'm working on</h2>
-      <ul id="goals">
-        <li>Get Hackatime tracking working</li>
-        <li>Ship this on GitHub</li>
-        <li>Post a dev log on Stardance</li>
-      </ul>
-      <form id="add-goal">
-        <input type="text" id="goal-input" placeholder="Add a goal..." maxlength="80" />
-        <button type="submit">Add</button>
+      <h2>Add a chore</h2>
+      <form id="add-chore" class="chore-form">
+        <input type="text" id="chore-title" placeholder="e.g. Feed dogs" maxlength="60" required />
+        <textarea id="chore-desc" placeholder="Notes (optional): how, how often…" rows="2" maxlength="200"></textarea>
+        <label class="time-label">
+          Due time (optional)
+          <input type="time" id="chore-time" />
+        </label>
+        <button type="submit">Add to today's flow</button>
       </form>
     </section>
 
     <section class="card">
-      <h2>Click counter</h2>
-      <p id="message">Clicks: <strong id="count">0</strong></p>
-      <button id="btn" type="button">+1</button>
-      <button id="reset" type="button" class="secondary">Reset</button>
+      <div class="section-head">
+        <h2>Your flow</h2>
+        <button type="button" id="reset-day" class="secondary small">Reset checks (today)</button>
+      </div>
+      <p class="hint">Check off chores as you go. Times turn green (done), blue (upcoming), or amber (overdue).</p>
+      <ol id="flow-list" class="flow-list"></ol>
+      <p id="empty-state" class="empty hidden">No chores yet. Add water plants, feed dogs, or anything you do daily.</p>
     </section>
 
     <footer>
-      <p>Session started today · edit this site in Cursor to log more hours</p>
+      <p>Saves in your browser · code on GitHub · built for Stardance</p>
     </footer>
   </main>
   <script src="script.js"></script>
